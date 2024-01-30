@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokedex</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+    <link rel="stylesheet" href="/pokedex.css" />
+    <link rel="stylesheet" href="/advance search.css" />
+  </head>
+  <body>
+    <div class="header">
+       <div class="btn-liked">
+        <button class="liked-cards-btn">
+          Liked Cards
+          <span class="liked-count">0</span>
+        </button>
+      </div>
+      <div class="pokemon-img">
+        <img src="pokeball.png" alt="pokemonball pic" />
+      </div>
+      <h1 id="pokedexText">Pokédex</h1>
+
+      <div class="logOut">
+        <form action="/logout" method="post">
+          <button class="btn-logOut" type="submit">LogOut</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="search">
+      <label>Name/Number</label>
+
+      <div class="searchInput">
+        <textarea
+          class="search-pokemon"
+          placeholder="Enter Name/Number..."
+        ></textarea>
+      </div>
+
+      <!-- Sort By -->
+      <div class="sorting">
+        <h3 id="sortBy">Sort By</h3>
+        <div class="dropdown">
+          <div class="select">
+            <span class="selected">Low to High (Number)</span>
+            <!-- <div class="caret"></div> -->
+            <span class="material-symbols-outlined expand-filter" id="expand">
+              expand_more
+            </span>
+          </div>
+
+          <ul class="menu">
+            <li class="active-filter" id="A">Low to High (Number)</li>
+            <li id="B">High to Low (Number)</li>
+            <li id="C">A-Z</li>
+            <li id="D">Z-A</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="adv-search">
+      <button class="advance-search">Advance Search</button>
+    </div>
+
+    <!-- Advance Search" -->
+    <div class="pokedex-filter-wrapper overflow-visible open">
+      <div class="pokedex-filter-wrapper__inner clear">
+        <div class="left-column">
+          <div class="content-block content-block-full">
+            <h2 class="section-title">Type &amp; Weakness</h2>
+
+            <div class="filter-help">
+              <span><strong>T</strong> = Type</span>
+              <span><strong>W</strong> = Weakness</span>
+            </div>
+          </div>
+
+          <div class="content-block content-block-full">
+            <ul class="pokedex-filter-tw-list">
+              <li>
+                <span class="pill background-color-bug">Bug</span>
+                <span
+                  data-type="type"
+                  data-value="bug"
+                  class="filter type-filter toggle type type-bug"
+                  >T</span
+                >
+                <span
+                  data-type="weakness"
+                  data-value="bug"
+                  class="filter weakness-filter toggle weakness"
+                  >W</span
+                >
+              </li>
+
+              <li>
+                <span class="pill background-color-dark">Dark</span>
+                <span
+                  data-type="type"
+                  data-value="dark"
+                  class="filter type-filter toggle type"
+                  >T</span
+                >
+                <span
+                  data-type="weakness"
+                  data-value="dark"
+                  class="filter weakness-filter toggle weakness"
+                  >W</span
+                >
+              </li>
+
+              <li>
+                <span class="pill background-color-dragon">Dragon</span>
+                <span
+                  data-type="type"
+                  data-value="dragon"
+                  class="filter type-filter toggle type"
+                  >T</span
+                >
+                <span
+                  data-type="weakness"
+                  data-value="dragon"
+                  class="filter weakness-filter toggle weakness"
+                  >W</span
+                >
+              </li>
+
+              <li>
+                <span class="pill background-color-electric">Electric</span>
+                <span
+                  data-type="type"
+                  data-value="electric"
+                  class="filter type-filter toggle type"
+                  >T</span
+                >
+                <span
+                  data-type="weakness"
+                  data-value="electric"
+                  class="filter weakness-filter toggle weakness"
+                  >W</span
+                >
+              </li>
+
+              <li>
+                <span class="pill background-color-fairy">Fairy</span>
+                <span
+                  data-type="type"
+                  data-value="fairy"
+                  class="filter type-filter toggle type"
+                  >T</span
+                >
+                <span
+                  data-type="weakness"
+                  data-value="fairy"
+                  class="filter weakness-filter toggle weakness"
+                  >W</span
+                >
+              </li>
+
+              <li>
+                <span class="pill background-color-fighting">Fighting</span>
+                <span
+                  data-type="type"
+                  data-value="fighting"
+                  class="filter type-filter toggle type"
+                  >T</span
+                >
+                <span
+                  data-type="weakness"
+                  data-value="fighting"
+                  class="filter weakness-filter toggle weakness"
+                  >W</span
+                >
+              </li>
+
+              <li>
+                <span class="pill background-color-fire">Fire</span>
+                <span
+                  data-type="type"
+                  data-value="fire"
+                  class="filter type-filter toggle type"
+                  >T</span
+                >
+                <span
+                  data-type="weakness"
+                  data-value="fire"
+                  class="filter weakness-filter toggle weakness"
+                  >W</span
+                >
+              </li>
+
+              <li>
+                <span class="pill background-color-flying">Flying</span>
+                <span
+                  data-type="type"
+                  data-value="flying"
+                  class="filter type-filter toggle type"
+                  >T</span
+                >
+                <span
+                  data-type="weakness"
+                  data-value="flying"
+                  class="filter weakness-filter toggle weakness"
+                  >W</span
+                >
+              </li>
+
+              <li>
+                <span class="pill background-color-ghost">Ghost</span>
+                <span
+                  data-type="type"
+                  data-value="ghost"
+                  class="filter type-filter toggle type"
+                  >T</span
+                >
+                <span
+                  data-type="weakness"
+                  data-value="ghost"
+                  class="filter weakness-filter toggle weakness"
+                  >W</span
+                >
+              </li>
+
+              <li>
+                <span class="pill background-color-grass">Grass</span>
+                <span
+                  data-type="type"
+                  data-value="grass"
+                  class="filter type-filter toggle type"
+                  >T</span
+                >
+                <span
+                  data-type="weakness"
+                  data-value="grass"
+                  class="filter weakness-filter toggle weakness"
+                  >W</span
+                >
+              </li>
+
+              <li>
+                <span class="pill background-color-ground">Ground</span>
+                <span
+                  data-type="type"
+                  data-value="ground"
+                  class="filter type-filter toggle type"
+                  >T</span
+                >
+                <span
+                  data-type="weakness"
+                  data-value="ground"
+                  class="filter weakness-filter toggle weakness"
+                  >W</span
+                >
+              </li>
+
+              <li>
+                <span class="pill background-color-ice">Ice</span>
+                <span
+                  data-type="type"
+                  data-value="ice"
+                  class="filter type-filter toggle type"
+                  >T</span
+                >
+                <span
+                  data-type="weakness"
+                  data-value="ice"
+                  class="filter weakness-filter toggle weakness"
+                  >W</span
+                >
+              </li>
+
+              <li>
+                <span class="pill background-color-normal">Normal</span>
+                <span
+                  data-type="type"
+                  data-value="normal"
+                  class="filter type-filter toggle type"
+                  >T</span
+                >
+                <span
+                  data-type="weakness"
+                  data-value="normal"
+                  class="filter weakness-filter toggle weakness"
+                  >W</span
+                >
+              </li>
+
+              <li>
+                <span class="pill background-color-poison">Poison</span>
+                <span
+                  data-type="type"
+                  data-value="poison"
+                  class="filter type-filter toggle type"
+                  >T</span
+                >
+                <span
+                  data-type="weakness"
+                  data-value="poison"
+                  class="filter weakness-filter toggle weakness"
+                  >W</span
+                >
+              </li>
+
+              <li>
+                <span class="pill background-color-psychic">Psychic</span>
+                <span
+                  data-type="type"
+                  data-value="psychic"
+                  class="filter type-filter toggle type"
+                  >T</span
+                >
+                <span
+                  data-type="weakness"
+                  data-value="psychic"
+                  class="filter weakness-filter toggle weakness"
+                  >W</span
+                >
+              </li>
+
+              <li>
+                <span class="pill background-color-rock">Rock</span>
+                <span
+                  data-type="type"
+                  data-value="rock"
+                  class="filter type-filter toggle type"
+                  >T</span
+                >
+                <span
+                  data-type="weakness"
+                  data-value="rock"
+                  class="filter weakness-filter toggle weakness"
+                  >W</span
+                >
+              </li>
+
+              <li>
+                <span class="pill background-color-steel">Steel</span>
+                <span
+                  data-type="type"
+                  data-value="steel"
+                  class="filter type-filter toggle type"
+                  >T</span
+                >
+                <span
+                  data-type="weakness"
+                  data-value="steel"
+                  class="filter weakness-filter toggle weakness"
+                  >W</span
+                >
+              </li>
+
+              <li>
+                <span class="pill background-color-water">Water</span>
+                <span
+                  data-type="type"
+                  data-value="water"
+                  class="filter type-filter toggle type"
+                  >T</span
+                >
+                <span
+                  data-type="weakness"
+                  data-value="water"
+                  class="filter weakness-filter toggle weakness"
+                  >W</span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="right-column">
+          <div class="content-block content-block-full abilities-filter">
+            <h3 class="section-title pokedex-filter-title">Ability</h3>
+
+            <div class="custom-select-wrapper">
+              <select id="abilities" data-type="abilities" data-height="300">
+                <option value="All">All</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="content-block content-block-full">
+            <h3 class="section-title pokedex-filter-title">Height</h3>
+
+            <ul class="pokedex-filter-height-list height" data-type="height">
+              <li class="size">
+                <span
+                  class="height-size-short height-size icon_filter_height_small"
+                  >short</span
+                >
+                <!-- <span class="offscreen">short</span> -->
+              </li>
+
+              <li class="size middle">
+                <span
+                  class="height-size-medium height-size icon_filter_height_medium"
+                  >med</span
+                >
+                <!-- <span class="offscreen">med</span> -->
+              </li>
+
+              <li class="size">
+                <span
+                  class="height-size-tall height-size icon_filter_height_large"
+                  >tall</span
+                >
+                <!-- <span class="offscreen">tall</span> -->
+              </li>
+            </ul>
+          </div>
+
+          <div class="content-block content-block-full">
+            <h3>Weight</h3>
+
+            <ul class="pokedex-filter-weight-list weight" data-type="weight">
+              <li class="size">
+                <span
+                  class="weight-size weight-size-light icon_filter_weight_small"
+                  >light</span
+                >
+                <!-- <span class="offscreen">light</span> -->
+              </li>
+
+              <li class="size middle" data-value="medium" data-type="weight">
+                <span
+                  class="weight-size weight-size-med icon_filter_weight_medium"
+                  >med</span
+                >
+                <!-- <span class="offscreen">medium</span> -->
+              </li>
+
+              <li class="size" data-value="heavy" data-type="weight" ="0">
+                <span
+                  class="weight-size weight-size-heavy icon_filter_weight_large"
+                  >heavy</span
+                >
+                <!-- <span class="offscreen">heavy</span> -->
+              </li>
+            </ul>
+          </div>
+
+          <div class="content-block content-block-full">
+            <div class="filter-action">
+              <button class="bttn btn-reset">Reset</button>
+              <button class="bttn btn-search">Search</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="adv-search">
+      <button class="hide-advance-search">Hide Advance Search</button>
+    </div>
+
+    <div class="surprise">
+      <button class="btn-surprise">
+        <p>Surprise</p>
+        <!-- <div class="circle-top"></div>
+        <div class="circle-bottom"></div> -->
+        <div id="pokemonImg">
+          <img src="/pokeball.png" alt="pokemonball pic" class="surpriseImg" />
+        </div>
+        <p>Me</p>
+      </button>
+    </div>
+
+    <div class="container">
+      <!-- Cards -->
+      <ul class="card"></ul>
+    </div>
+
+    <div class="content-button">
+       <!-- Button for more Pokemons -->
+      <div class="show-more">
+        <button class="btn load-more">
+          <span class="material-symbols-outlined"> expand_more </span>
+        </button>
+      </div>
+
+      <div class="show-less">
+        <!-- Button to collapse Pokemons -->
+        <button class="btn btn-collapse">
+          <span class="material-symbols-outlined"> expand_less </span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Not Found -->
+    <div class="not-found">Pokemon not found</div>
+    
+
+    <script>
+
+    const userId = "{{userId}}"; 
+
+    function loadPokedexScript(userId) {
+      const script = document.createElement('script');
+      script.src = `/pokedex.js?userId=${userId}`;
+      document.head.appendChild(script);
+
+      // Update the URL in the address bar without reloading the page
+      const newURL = window.location.origin + window.location.pathname + `?userId=${userId}`;
+      history.pushState({ userId }, null, newURL);
+    }
+
+    function loadScripts() {
+      const pokemonJsonScript = document.createElement('script');
+      pokemonJsonScript.src = '/pokemonJson.js';
+      pokemonJsonScript.onload = () => loadPokedexScript(userId); 
+      document.head.appendChild(pokemonJsonScript);
+    }
+
+    loadScripts();
+  </script>
+
+  </body>
+</html>
