@@ -15,7 +15,7 @@ Welcome to the Pokedex application! This web application allows users to browse 
 - Nodemailer: Sending emails for the forgot password feature
 
 ## Usage
-Open your web browser and go to http://localhost:3000.
+Open your web browser and go to http://localhost:{port}.
 Sign up for a new account or log in if you already have an account.
 Explore the Pokedex, like your favorite Pokemon cards, and enjoy the app!
 
